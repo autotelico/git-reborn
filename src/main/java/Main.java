@@ -17,7 +17,6 @@ public class Main {
 
         // Read file
         String decompressedContent = new String(fileBytes, 0, resultLength);
-        System.out.printf("Output string: %s\n", decompressedContent);
         String contentType = Files.probeContentType(file);
         long size = Files.size(file);
         System.out.printf("""
@@ -72,6 +71,7 @@ public class Main {
                     Path filePath = Path.of(System.getProperty("user.dir") + "\\" + fileName);
                     System.out.printf("file path: %s\n", filePath);
                     String content = readBlob(filePath);
+                    System.out.printf("Content: %s", content);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
