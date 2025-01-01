@@ -8,15 +8,15 @@ import java.util.zip.Inflater;
 public class Main {
     public static String readBlob(Path file) throws IOException, DataFormatException {
         // Decompress file
-            // Get byte array from file
-            byte[] fileBytes = Files.readAllBytes(file);
-            Inflater decompresser = new Inflater();
-            decompresser.setInput(fileBytes, 0, fileBytes.length);
-            int resultLength = decompresser.inflate(fileBytes);
-            decompresser.end();
+        // Get byte array from file
+        byte[] fileBytes = Files.readAllBytes(file);
+        Inflater decompresser = new Inflater();
+        decompresser.setInput(fileBytes, 0, fileBytes.length);
+        int resultLength = decompresser.inflate(fileBytes);
+        decompresser.end();
 
         // Read file
-        System.out.printf("Output string: %s", new String(fileBytes, 0, resultLength));
+        System.out.printf("Output string: %s\n", new String(fileBytes, 0, resultLength));
         String contentType = Files.probeContentType(file);
         long size = Files.size(file);
         System.out.printf("""
